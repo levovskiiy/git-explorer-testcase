@@ -1,7 +1,7 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Home from "../pages/Home/Home.vue";
-import RepoDetail from "../pages/Detial/RepoDetail.vue";
+import RepoDetail from "../pages/Detail/RepoDetail.vue";
 
 Vue.use(Router);
 
