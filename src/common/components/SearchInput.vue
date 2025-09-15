@@ -45,5 +45,21 @@ export default {
 .search-input {
   width: 100%;
   height: 32px;
+  padding: var(--space-md);
+  border: 2px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  font-size: var(--font-size-base);
+  transition: var(--transition-smooth);
+  background: var(--color-background);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.search-input::placeholder {
+  color: var(--color-text-secondary);
 }
 </style>

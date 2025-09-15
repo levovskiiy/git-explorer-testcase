@@ -1,15 +1,19 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import { LocalStorage } from "../common/util";
 
 Vue.use(Vuex);
 
+const STORAGE_KEY = "favorites";
+
 export default new Vuex.Store({
   state: {
-    favorites: [],
+    favorites: LocalStorage.get(STORAGE_KEY, []),
   },
   getters: {
-    isFavorite: (state) => (id) => {
-      return state.favorites.some((r) => r.id === id);
+    uniqueFavorites: (state) => new Set(state.favorites.map((it) => it.id)),
+    isFavorite: (_, getters) => (id) => {
+      return getters.uniqueFavorites.has(id);
     },
     favorites: (state) => state.favorites,
   },
@@ -21,6 +25,8 @@ export default new Vuex.Store({
       } else {
         state.favorites.push({ ...repo });
       }
+
+      LocalStorage.put(STORAGE_KEY, state.favorites);
     },
   },
 });

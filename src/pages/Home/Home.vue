@@ -1,28 +1,37 @@
 <template>
   <div class="home">
-    <SearchInput v-model="searchQuery" />
+    <SearchInput v-model="searchQuery" placeholder="Поиск репозиториев" />
     <div v-if="loading">loading...</div>
+    <div v-else class="content">
+      <section class="repos">
+        <RepositoryList :items="repos" :total="totalItems" />
+      </section>
+      <aside class="favorites">
+        <FavoritesList />
+      </aside>
+    </div>
   </div>
 </template>
 
 <script>
-import { mapState } from "vuex";
-import SearchInput from "../../components/SearchInput.vue";
+import SearchInput from "../../common/components/SearchInput.vue";
+import RepositoryList from "./RepositoryList.vue";
+import FavoritesList from "./FavoritesList.vue";
 
 export default {
   name: "Home",
   components: {
     SearchInput,
+    RepositoryList,
+    FavoritesList,
   },
   data() {
     return {
       loading: false,
       repos: [],
+      totalItems: 0,
       searchQuery: "",
     };
-  },
-  computed: {
-    ...mapState(["favorites"]),
   },
   watch: {
     searchQuery() {
@@ -45,11 +54,38 @@ export default {
 
       const data = await resp.json();
       this.repos = data.items || [];
+      this.totalItems = data.total_count;
       this.loading = false;
-    },
-    toggleFavorite(repo) {
-      this.$store.commit("toggleFavorite", repo);
     },
   },
 };
 </script>
+
+<style scoped lang="scss">
+.home {
+  padding: var(--space-xl);
+  display: flex;
+  flex-flow: column nowrap;
+  gap: var(--space-md);
+
+  .content {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: var(--space-md);
+
+    .repos {
+      flex: 1;
+
+      .counter {
+        color: var(--color-text-secondary);
+        font-size: 12px;
+        margin-bottom: var(--space-md);
+      }
+    }
+
+    .favorites {
+      min-width: 600px;
+    }
+  }
+}
+</style>

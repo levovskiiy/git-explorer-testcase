@@ -1,0 +1,37 @@
+@import url("./vars.css");
+@import url("./reset.css");
+
+body {
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji";
+  font-size: var(--font-size-base);
+  font-weight: normal;
+  font-feature-settings: "tnum" on, "lnum" on;
+  -webkit-font-smoothing: subpixel-antialiased;
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-primary-hover);
+  text-decoration: underline;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  font-family: inherit;
+  font-size: inherit;
+}
+
+input {
+  font-family: inherit;
+  font-size: inherit;
+}
