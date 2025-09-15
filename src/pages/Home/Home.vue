@@ -63,7 +63,7 @@ export default {
   methods: {
     async searchRepositories() {
       if (!this.searchQuery.trim()) {
-        this.repos = [];
+        this.reset();
         return;
       }
 
@@ -76,6 +76,12 @@ export default {
       this.repos = data.items || [];
       this.totalItems = data.total_count;
       this.loading = false;
+    },
+    reset() {
+      this.repos = [];
+      this.page = 1;
+      this.searchQuery = "";
+      this.totalItems = 0;
     },
   },
 };

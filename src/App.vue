@@ -1,9 +1,7 @@
 <template>
   <div class="app">
     <nav class="nav">
-      <div class="container flex justify-between align-center">
-        <router-link to="/" class="nav-link">GitHub Explorer</router-link>
-      </div>
+      <RouterLink to="/" class="nav-link">GitHub Explorer</RouterLink>
     </nav>
     <main class="main">
       <RouterView />
@@ -19,21 +17,23 @@ export default {
 };
 </script>
 
-<style scoped>
-.nav {
-  padding: var(--space-md) 40px;
-  background-color: var(--color-surface);
-  border-bottom: 1px solid var(--color-border);
-  box-shadow: var(--shadow-sm);
-}
+<style scoped lang="scss">
+.app {
+  .nav {
+    padding: var(--space-md) 40px;
+    background-color: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
 
-.nav-link {
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-primary);
-}
+    &-link {
+      font-size: var(--font-size-lg);
+      font-weight: 600;
+      color: var(--color-primary);
+    }
+  }
 
-.main {
-  min-height: calc(100vh - 80px);
+  .main {
+    min-height: calc(100vh - 80px);
+  }
 }
 </style>

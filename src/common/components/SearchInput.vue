@@ -12,10 +12,16 @@
 export default {
   name: "SearchInput",
   props: {
+    /**
+     * @desc Текущее значение
+     */
     value: {
       type: String,
       default: "",
     },
+    /**
+     * @desc Заддержка обновления значения
+     */
     delay: {
       type: Number,
       default: 300,

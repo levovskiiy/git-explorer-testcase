@@ -9,19 +9,26 @@
 </template>
 
 <script>
-import { nextTick } from "vue";
-
 export default {
   name: "CopyButton",
   props: {
+    /**
+     * @desc Текст который необходимо скопировать
+     */
     text: {
       type: String,
       required: true,
     },
+    /**
+     * @desc Текст кнопки
+     */
     label: {
       type: String,
       required: true,
     },
+    /**
+     * @desc Время показа сообщения на кнопке 'Скопировано'
+     */
     delay: {
       type: Number,
       default: 2000,
