@@ -11,7 +11,7 @@
       <RouterLink :to="repoPageUrl">{{ fullName }}</RouterLink>
       <div class="status">⭐ {{ stars }} | 🔄 {{ forks }}</div>
     </div>
-    <button class="button" @click="$emit('toggle-favorite')">
+    <button class="button ghost" @click="$emit('toggle-favorite')">
       {{ favoriteIcon }}
     </button>
   </div>
@@ -93,7 +93,6 @@ export default {
   border: 1px solid var(--color-border);
   border-radius: var(--border-radius-md);
   padding: var(--space-md);
-  margin-bottom: var(--space-sm);
   transition: var(--transition-smooth);
   box-shadow: var(--shadow-sm);
 

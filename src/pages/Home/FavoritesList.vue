@@ -1,6 +1,6 @@
 <template>
   <div class="favorites-list">
-    <h3>Избранные: {{ favorites.length }}</h3>
+    <h3 class="title">Избранные: {{ favorites.length }}</h3>
     <div v-if="favorites.length === 0">
       Вы не добавили еще ни 1 одного репозитория
     </div>
@@ -42,5 +42,11 @@ export default {
 .favorites-list {
   display: flex;
   flex-flow: column nowrap;
+  gap: var(--space-md);
+
+  .title {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+  }
 }
 </style>
