@@ -7,5 +7,5 @@ npm run dev
 ## Deploy
 
 ```
-https://git-explorer-levovskiiys-projects.vercel.app/#/
+https://git-explorer-drab.vercel.app/#/
 ```

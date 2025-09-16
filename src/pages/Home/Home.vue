@@ -60,6 +60,9 @@ export default {
       this.searchRepositories
     );
   },
+  beforeDestroy() {
+    this.$options.unwatch();
+  },
   methods: {
     async searchRepositories() {
       if (!this.searchQuery.trim()) {
